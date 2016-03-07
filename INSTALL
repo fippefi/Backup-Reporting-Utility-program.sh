@@ -1,0 +1,17 @@
+Backup Reporting Utility program.sh
+Copyright (C) 2016 Julius Salonen
+
+Installation instructions:
+
+Option 1:
+    Run the file with your shell interpreter straight out of the bin/ folder
+
+Option 2:
+    Place program.sh in your bin folder (defined in env var PATH, type env
+    in your shell interpreter to see all variables) and you can invoke
+    the program anywhere. To add a folder to your path, simply export
+    a new environment variable with your folder in the end:
+
+    export PATH=$PATH:~/bin
+    
+    This would add ~/bin folder to the path.

@@ -1,0 +1,30 @@
+Backup Reporting Utility program.sh
+
+Copyright (C) 2016 Julius Salonen
+
+This utility is meant to report on disk usage by various backup and temporary
+files. It takes the directory set in arguments and produces a list of found
+files, sorted list of counted files and a disk usage report of the counted
+files. Fairly barebones.
+
+Updates to script will be available at:
+    https://github.com/fippefi/Backup-Reporting-Utility-program.sh
+
+Currently reporting on following filetypes:
+
+      *~      A backup file from editor
+      *#      A temporary file from editor
+      *.bak   A backup file
+      *.bup   A backup file
+      *.rej   A rejected file    
+
+The reports are placed in TMPDIR, which is either from the environment var
+TMPDIR, or provided by the user with --tmpdir DIR option.
+
+Files generated:
+
+    PID.files-list.lst      - ls -l List of all scanned files.
+    PID.files-sorted.lst    - Sorted list of all backup files.
+    PID.files-summary.lst   - Summary disk usage report on backup files.
+
+See AUTHORS, COPYING and INSTALL for more information.

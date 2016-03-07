@@ -1,0 +1,138 @@
+#   Copyright
+#
+#   Copyright (C) 2016 Julius Salonen <julius.salonen@cs.tamk.fi>
+#
+#   License
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 3 of the License, or
+#       (at your option) any later version.
+#
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#       GNU General Public License for more details.
+#
+#       You should have received a copy of the GNU General Public License
+#       along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+#   Description
+#
+#   To learn what TOP LEVEL sections to use in manual page,
+#   see POSIX/Susv standard about "Utility Description Defaults" at
+#   http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
+#
+#   This manual page is in Perl POD format. Read more at
+#   http://perldoc.perl.org/perlpod.html or run command:
+#
+#       perldoc perlpod
+#
+#   To check the syntax:
+#
+#       podchecker *.pod
+#
+#   To create manual:
+#
+#       pod2man PROGRAM.N.pod > PROGRAM.N
+#
+#   To read generated manual page with man(1) command:
+#
+#       man -l man1/PROGRAM.N
+
+=pod
+
+=head1 NAME
+
+program.sh
+
+=head1 SYNOPSIS
+
+program.sh [--help] [--verbose] [--tmpdir DIR] TargetDIR
+
+=head1 DESCRIPTION
+
+Backup Reporting Utility to assist systems administrators
+
+Copyright (C) 2016 Julius Salonen
+
+Last modified on 7.3.2016
+
+This utility is meant to report on disk usage by various backup and temporary
+files. It takes the directory set in arguments and produces a list of found
+files, sorted list of counted files and a disk usage report of the counted
+files.
+
+Currently reporting on following filetypes:
+
+      *~      A backup file from editor
+      *#      A temporary file from editor
+      *.bak   A backup file
+      *.bup   A backup file
+      *.rej   A rejected file
+
+The reports are placed in TMPDIR, which is either from the environment var
+TMPDIR, or provided by the user with --tmpdir DIR option.
+
+Files generated:
+
+    PID.files-list.lst      - ls -l List of all scanned files.
+    PID.files-sorted.lst    - Sorted list of all backup files.
+    PID.files-summary.lst   - Summary disk usage report on backup files.
+
+See AUTHORS, COPYING and INSTALL for more information.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-h / --help>
+
+Display short help text.
+
+=item B<--verbose>
+
+Enable verbose mode - prints more information on the program as it runs.
+
+=item B<--tmpdir>
+
+Set temporary directory to something else. All file reports are placed in
+this location.
+
+=back
+
+=head1 EXAMPLES
+
+program.sh ~/
+    The most barebones version. Outputs files into default location and
+    scans the whole home directory.
+
+program.sh --verbose --tmpdir ~/tmp ~/backupdir
+    Scans the directory ~/backupdir and outputs files into ~/tmp.
+
+=head1 ENVIRONMENT
+
+None.
+
+=head1 FILES
+
+None.
+
+=head1 AVAILABILITY
+
+Updates to the script will be available at project github repository:
+    https://github.com/fippefi/Backup-Reporting-Utility-program.sh
+
+=head1 SEE ALSO
+
+page(1)
+
+=head1 AUTHORS
+
+Program was written by <julius.salonen@cs.tamk.fi>
+
+Released under license GNU GPL version 3 or (at your option) any later
+version. For more information about license, visit
+<http://www.gnu.org/copyleft/gpl.html>.
+
+=cut
